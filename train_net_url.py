@@ -25,6 +25,8 @@ from models.adaptors import adaptor
 from utils import Accumulator, device
 from config import args, BATCHSIZES, LOSSWEIGHTS, KDFLOSSWEIGHTS, KDPLOSSWEIGHTS, KDANNEALING
 
+tf.compat.v1.disable_v2_behavior()
+
 
 def train():
     # initialize datasets and loaders

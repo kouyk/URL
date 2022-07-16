@@ -32,6 +32,8 @@ from data.meta_dataset_reader import (MetaDatasetEpisodeReader, MetaDatasetBatch
                                       ALL_METADATASET_NAMES)
 from config import args
 
+tf.compat.v1.disable_v2_behavior()
+
 
 def main():
     TEST_SIZE = 600

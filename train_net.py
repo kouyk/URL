@@ -20,6 +20,8 @@ from models.model_helpers import get_model, get_optimizer
 from utils import Accumulator
 from config import args
 
+tf.compat.v1.disable_v2_behavior()
+
 
 def train():
     # initialize datasets and loaders
