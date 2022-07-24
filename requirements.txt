@@ -1,0 +1,8 @@
+tqdm
+gin-config
+simclr
+scikit-learn
+tensorflow
+torch
+torchvision
+tabulate
