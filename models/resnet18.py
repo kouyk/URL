@@ -143,3 +143,16 @@ def resnet18(pretrained=False, pretrained_model_path=None, **kwargs):
         model.load_state_dict(shared_state, strict=False)
         print('Loaded shared weights from {}'.format(pretrained_model_path))
     return model
+
+def resnet34(pretrained=False, pretrained_model_path=None, **kwargs):
+    """
+        Constructs a ResNet-34 model
+    """
+    model = ResNet(BasicBlock, [3, 4, 6, 3], **kwargs)
+    if pretrained_model_path is not None:
+        device = model.get_parameters()[0].device
+        ckpt_dict = torch.load(pretrained_model_path, map_location=device)['state_dict']
+        shared_state = {k: v for k, v in ckpt_dict.items() if 'cls' not in k}
+        model.load_state_dict(shared_state, strict=False)
+        print('Loaded shared weights from {}'.format(pretrained_model_path))
+    return model

@@ -9,6 +9,16 @@ DATASET_MODELS_RESNET18 = {
     'vgg_flower': 'vgg_flower-net'
 }
 
+DATASET_MODELS_RESNET34 = {
+    'ilsvrc_2012': 'imagenet-net34',
+    'omniglot': 'omniglot-net34',
+    'aircraft': 'aircraft-net34',
+    'cu_birds': 'birds-net34',
+    'dtd': 'textures-net34',
+    'quickdraw': 'quickdraw-net34',
+    'fungi': 'fungi-net34',
+    'vgg_flower': 'vgg_flower-net34'
+}
 
 DATASET_MODELS_RESNET18_PNF = {
     'omniglot': 'omniglot-film',
@@ -21,4 +31,5 @@ DATASET_MODELS_RESNET18_PNF = {
 }
 
 DATASET_MODELS_DICT = {'resnet18': DATASET_MODELS_RESNET18,
-                       'resnet18_pnf': DATASET_MODELS_RESNET18_PNF}
+                       'resnet18_pnf': DATASET_MODELS_RESNET18_PNF,
+                       'resnet34': DATASET_MODELS_RESNET34}

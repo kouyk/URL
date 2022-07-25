@@ -31,15 +31,16 @@ def get_model(num_classes, args):
         else:
             model_fn = partial(resnet18, dropout=dropout_rate)
     else:
-        from models.resnet18 import resnet18
+        from models.resnet18 import resnet18, resnet34
+        model_fn = resnet34 if model_name == 'resnet34' else resnet18
         if args['model.pretrained']:
             base_network_name = DATASET_MODELS_RESNET18['ilsvrc_2012']
             base_network_path = os.path.join(args['source'], 'weights', base_network_name,
                                  'model_best.pth.tar')
-            model_fn = partial(resnet18, dropout=dropout_rate,
+            model_fn = partial(model_fn, dropout=dropout_rate,
                            pretrained_model_path=base_network_path)
         else:
-            model_fn = partial(resnet18, dropout=dropout_rate)
+            model_fn = partial(model_fn, dropout=dropout_rate)
 
     model = model_fn(classifier=train_classifier,
                      num_classes=num_classes,
